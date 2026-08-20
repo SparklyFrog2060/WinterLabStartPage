@@ -1,0 +1,6 @@
+{
+  "name": "Winterlab Portal",
+  "description": "Strona domowa i portal usług Winterlab z bezpośrednim dostępem do Home Assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

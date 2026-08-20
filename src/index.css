@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-color: #fcfcfc;
+    --grid-color: #eeeeee;
+    --text-main: #1a1a1a;
+    --text-muted: #888888;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+.blueprint-bg {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.65;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.vignette-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(252, 252, 252, 0.85) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.tech-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing: 0.12em;
+}
