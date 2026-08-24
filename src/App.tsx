@@ -7,7 +7,7 @@ export interface TileItem {
   id: string;
   name: string;
   url: string;
-  logo: string;
+  logo?: string;
 }
 
 const TILES: TileItem[] = [
@@ -16,6 +16,12 @@ const TILES: TileItem[] = [
     name: 'Home Assistant',
     url: 'https://home.winterlab.pl',
     logo: 'https://raw.githubusercontent.com/SparklyFrog2060/WinterlabResources/refs/heads/main/logos/WinterlabHome.svg',
+  },
+  {
+    id: 'filamenty',
+    name: 'Filamenty',
+    url: 'https://sparklyfrog2060.github.io/Filamenty/',
+    logo: '',
   },
   // Aby dodać kolejny kafelek, po prostu odkomentuj lub dopisz nowy wpis, np.:
   // {
@@ -65,14 +71,20 @@ export default function App() {
               className="group relative bg-white border border-[#eaeaea] hover:border-slate-300 rounded-2xl p-3 sm:p-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.07)] transition-all cursor-pointer flex items-center justify-center w-72 sm:w-80 aspect-4/3 overflow-hidden"
               title={tile.name}
             >
-              {/* Logo wypełniające niemal cały kafelek */}
+              {/* Logo wypełniające niemal cały kafelek lub tekst, jeśli nie ma grafiki */}
               <div className="w-full h-full flex items-center justify-center p-2">
-                <img
-                  src={tile.logo}
-                  alt={tile.name}
-                  className="w-full h-full object-contain filter contrast-125 select-none transition-transform duration-300 group-hover:scale-108"
-                  referrerPolicy="no-referrer"
-                />
+                {tile.logo ? (
+                  <img
+                    src={tile.logo}
+                    alt={tile.name}
+                    className="w-full h-full object-contain filter contrast-125 select-none transition-transform duration-300 group-hover:scale-108"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-3xl sm:text-4xl font-black tracking-tight text-slate-800 select-none">
+                    {tile.name}
+                  </div>
+                )}
               </div>
             </motion.a>
           ))}
